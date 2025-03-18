@@ -173,4 +173,4 @@ cython_debug/
 #data
 data/
 
-data_with_PCA_umap.h5ad
+*.h5ad
