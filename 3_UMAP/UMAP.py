@@ -4,11 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-#for some reason running it as .py is way faster, we think because the console output
-#is slowing down jupyter a ton
+#Rnning it as .py is y faster, as the console output is slowing down jupyter due to 
+#a warning caused by dependencies conflict in matplotlib version
 def perform_UMAP(): 
     
-    print("Running... Takes a couple minutes")
+    print("Running... Takes a couple minutes. If console fills with errors, thats normal.")
     
     #reproducibility
     np.random.seed(42)
@@ -39,3 +39,15 @@ def perform_UMAP():
 if __name__ == "__main__":
     perform_UMAP()
     
+"""
+The UMAP allows us to visualize the highly dimentionnal data in 2D. 
+The leiden algorithm allowws us to identify separate clusters and colour them accordingly. 
+Following this procedure, we obtain 11 distinct clusters. However, some contains very few cells (<100).
+
+A set seed was used for reproducibility. We used a bigger than normal minimal distance forthe UMAP (0.3 vs. 0.1) 
+so we could see the clusters better. We decided on using a resolution of 0.3 after trying multiple resolutions
+based on how the UMAP looked, and based on our downstream analysis. We still get clusters on the UMAP that
+look like they might be able to be combined, we will further explore this in the later analyses.
+
+The UMAP is saved as 'UMAP_Leiden_graph_0.3_res.png
+"""
